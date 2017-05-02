@@ -1,0 +1,348 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>FeatureTree</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">FeatureTree</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> FeatureTree</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<h1 id="buildertrend-feature-tree">BuilderTrend Feature Tree</h1>
+				<h2 id="project-dependencies">Project Dependencies</h2>
+				<ul>
+					<li>.NET Core V1.0.1 SDK</li>
+					<li>.NET Core V1.0.1 VS 2015 Tooling
+					<img src="Images/Markdown/mdcoreversion.png" alt="Mdcoreversion"></li>
+					<li>Node and NPM for Angular package management</li>
+					<li>Typescript 2.0 (Will get errors &#39;required&#39; error messages if not installed. Restart Visual Studio after install)</li>
+				</ul>
+				<h2 id="project-notes">Project Notes</h2>
+				<ul>
+					<li>AppSettings.json<ul>
+							<li>Contains Database Connection Settings. Must update to your localdb settings</li>
+						</ul>
+					</li>
+					<li>Package.json<ul>
+							<li>Contains a list of all NPM packages that are used in the project. Pulls in all of the Angular Components.</li>
+							<li>You will most likely get a Dependencies - not installed message after restoring the NPM Packages.<ul>
+									<li>This is caused by fsevents which will only install on Mac. It is an optional dependency so it does not matter.
+									<img src="Images/Markdown/fsevents.png" alt="Fsevents"></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>Project.json<ul>
+							<li>The project.json file contains all the .net core project information as well as all of the nuget dependencies. If you had a package via nuget it will be displayed in this file.</li>
+						</ul>
+					</li>
+					<li>ClientApp<ul>
+							<li>The Angular stuff goes here.</li>
+						</ul>
+					</li>
+				</ul>
+				<h2 id="sql-source-control">SQL Source Control</h2>
+				<p>Schema Changes (When connected to jmknust-proj.database.windows.net)</p>
+				<h4 id="scenerio-1-making-a-change-in-microsoft-management-studio">Scenerio 1 - Making a change in Microsoft Management Studio</h4>
+				<ol>
+					<li>Makes changes to Azure DB</li>
+					<li>Right click on DB Project and select &#39;Schema Compare&#39;
+					<img src="Images/Markdown/mdDB1.png" alt="Md D B1"></li>
+					<li>Select the azure DB as your source and your local DB project as the target and run the comparison
+					<img src="Images/Markdown/mdDB2.png" alt="Md D B2"></li>
+					<li>It should display all of the changes you made.</li>
+					<li>Click on the Update button to Apply the schema changes to the Project files<h4 id="scenerio-2-making-a-change-in-visual-studio-and-applying-to-azure-db">Scenerio 2 - Making a change in visual studio and applying to Azure DB</h4>
+					</li>
+					<li>Steps 1 &amp; 2 above</li>
+					<li>Select the local DB Project as the source and Azure DB as target.</li>
+					<li>Steps 4 &amp; 5 above</li>
+				</ol>
+				<h2 id="api-routes-currently-working">API Routes Currently Working</h2>
+				<ul>
+					<li>Issues: <ul>
+							<li>GET api/issue/{Id}</li>
+							<li>GET api/issue/</li>
+							<li>PUT api/issue/{Id} + Issue object</li>
+							<li>POST api/issue/ + Issue object</li>
+						</ul>
+					</li>
+					<li>Users:<ul>
+							<li>GET api/user/</li>
+							<li>GET api/user/851B90E1-36AD-4C73-ADC7-9C4A1745DA54</li>
+						</ul>
+					</li>
+					<li>Status:<ul>
+							<li>GET api/status/</li>
+							<li>GET api/status/{Id}</li>
+						</ul>
+					</li>
+					<li>Priority:<ul>
+							<li>GET api/priority/</li>
+							<li>GET api/priority/{Id}</li>
+						</ul>
+					</li>
+					<li>StatusCategory<ul>
+							<li>GET api/statusCategory/</li>
+							<li>GET api/statusCategor/{Id}</li>
+						</ul>
+					</li>
+					<li>Projects<ul>
+							<li>GET api/project/</li>
+							<li>GET api/project/{Id}</li>
+						</ul>
+					</li>
+					<li>Tree<ul>
+							<li>GET api/tree/{ProjectId}</li>
+						</ul>
+					</li>
+					<li>IssueType<ul>
+							<li>GET api/type/</li>
+							<li>GET api/type/{Id}</li>
+						</ul>
+					</li>
+				</ul>
+				<h1 id="-net-core-documentation">.NET Core Documentation</h1>
+				<p>We&#39;ve made some big updates in this release, so it’s <strong>important</strong> that you spend a few minutes to learn what’s new.</p>
+				<p>You&#39;ve created a new ASP.NET Core project. <a href="https://go.microsoft.com/fwlink/?LinkId=518016">Learn what&#39;s new</a></p>
+				<h2 id="this-application-consists-of-">This application consists of:</h2>
+				<ul>
+					<li>Sample pages using ASP.NET Core MVC</li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=518007">Gulp</a> and <a href="https://go.microsoft.com/fwlink/?LinkId=518004">Bower</a> for managing client-side libraries</li>
+					<li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
+				</ul>
+				<h2 id="how-to">How to</h2>
+				<ul>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkID=699562">Add an appsetting in config and access it in app.</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=699318">Add client packages using Bower.</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
+				</ul>
+				<h2 id="overview">Overview</h2>
+				<ul>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
+				</ul>
+				<h2 id="run-deploy">Run &amp; Deploy</h2>
+				<ul>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
+					<li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
+				</ul>
+				<p>We would love to hear your <a href="https://go.microsoft.com/fwlink/?LinkId=518015">feedback</a></p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_1st_spec_.html">"1st.spec"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_app_module_.html">"app/app.module"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_components_app_app_component_.html">"app/components/app/app.component"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_components_chart_chart_component_.html">"app/components/chart/chart.component"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_components_chart_chart_component_spec_.html">"app/components/chart/chart.component.spec"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_components_chart_mock_tree_nodes_.html">"app/components/chart/mock-<wbr>tree-<wbr>nodes"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_components_chart_tree_node_.html">"app/components/chart/tree-<wbr>node"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_components_chart_tree_node_service_.html">"app/components/chart/tree-<wbr>node.service"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_components_home_home_component_.html">"app/components/home/home.component"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_components_legend_legend_service_.html">"app/components/legend/legend-<wbr>service"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_components_legend_legend_component_.html">"app/components/legend/legend.component"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_components_modal_modal_component_.html">"app/components/modal/modal.component"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_components_modal_modal_service_.html">"app/components/modal/modal.service"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_components_modal_statussummarymodal_component_.html">"app/components/modal/status<wbr>Summary<wbr>Modal.component"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_components_navmenu_navmenu_component_.html">"app/components/navmenu/navmenu.component"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_components_project_modal_project_modal_component_.html">"app/components/project-<wbr>modal/project-<wbr>modal.component"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_components_project_modal_project_modal_service_.html">"app/components/project-<wbr>modal/project-<wbr>modal.service"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_components_projectlist_project_.html">"app/components/projectlist/project"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_components_projectlist_project_thumbnail_component_.html">"app/components/projectlist/project-<wbr>thumbnail.component"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_components_projectlist_projectlist_service_.html">"app/components/projectlist/projectlist-<wbr>service"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_app_components_projectlist_projectlist_component_.html">"app/components/projectlist/projectlist.component"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_boot_client_.html">"boot-<wbr>client"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_boot_server_.html">"boot-<wbr>server"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
